@@ -1,0 +1,24 @@
+#overhead {
+    display: flex;
+    flex-direction: row;
+    background-color: #232b2b;
+    
+  }
+  header, nav {
+    /* margin: 1px; */
+    border: 1px solid #414a4c;
+    border-left: 0;
+    padding: 5px;
+  }
+  header {
+    /* background-color: pink; */
+    width: 20%;
+    
+  }
+  nav {
+    /* background-color: blueviolet; */
+    width: 80%;
+  }
+  #firstPartTitle {
+    color: red
+  }

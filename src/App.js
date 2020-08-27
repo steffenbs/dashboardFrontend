@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment, useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+
+import Dashboard from "./components/content-block/dashboard"
+import LoginPage from "./pages/loginApp/loginApp"
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+	const setAuth = (boolean) => {
+		setIsAuthenticated(boolean)
+	};
+
+	async function isAuth() {
+		try {
+			const response = await fetch('http://localhost:5000/auth/verified', {
+				method: 'GET',
+				headers: {Authorization: localStorage.Authorization }
+			});
+
+			const parseRes = await response.json()
+			parseRes === true ? setIsAuthenticated(true): setIsAuthenticated(false)
+			
+		} catch (err) {
+			console.error(err.message)
+		}
+	}
+	useEffect(() => {
+		isAuth()
+	})
+	return (
+		<Fragment>
+		<Router>
+			<Switch>
+			<Route exact path="/login" render={props => !isAuthenticated ? (<LoginPage {...props} setAuth={setAuth}/>) : (<Redirect to="/" />)} />
+			<Route path="/" render={props => isAuthenticated ? (<Dashboard {...props} setAuth={setAuth}/>) : (<Redirect to="/login" />)} />
+			</Switch>
+		</Router>
+		</Fragment>
+
+);
+  
 }
 
 export default App;

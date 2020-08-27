@@ -1,0 +1,52 @@
+#notesList {
+    width: 20%;
+    height: inherit;
+    /* height: 93vh; */
+    padding: 0;
+    overflow-y: scroll; 
+}
+#listOfNotes {
+    /* overflow-y: scroll;     */
+    max-height: 100%;
+    min-height: 100%;
+}
+
+#newNoteBtn, #newNoteTitle {
+    background-color: purple;
+    width: 100%;
+}
+
+#newNoteTitle {
+    text-align: center;
+}
+
+.notesItem, .MuiListItemText-root {
+    padding: 0 !important; 
+    margin: 0 !important; 
+}
+
+.notesListItem{
+    border: 2px solid pink;
+    padding: 20px;
+    background-color: lawngreen;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.notesListTitle, .notesListDiv {
+    margin: 5px;
+    width: 100%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.editorDiv {
+    background-color: pink;
+    width: 80%;
+    margin: 5px;
+}
+
+.noteBox {
+    
+}

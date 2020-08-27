@@ -1,0 +1,15 @@
+#sidebar {
+    background-color: #232b2b;
+    padding: 5px;
+    border: 1px solid #414a4c;
+    border-top: 0;
+}
+.NavBarLink {
+    text-decoration: none;
+    color: inherit;
+    display:flex; 
+    flex-direction:row;
+}
+#sidebarList {
+    height: 150px;
+}

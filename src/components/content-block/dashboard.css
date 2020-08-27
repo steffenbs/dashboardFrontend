@@ -1,0 +1,7 @@
+#notesDashboard {
+    background-color: darkblue;
+    width: 95%;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+}
